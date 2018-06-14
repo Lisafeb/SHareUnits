@@ -12,9 +12,9 @@
           <td>{{ adunit.unit_name }}</td>
           <td *ngFor="let something of (adunit.unit_price | slice:adunit.unit_price.length - 1)">{{ something.value }}</td>
           <td *ngIf = 'hasToken()' ><a [routerLink]="['/edit', adunit._id]" class="btn btn-primary">Edit</a></td>
-        <td *ngIf = "!hasToken()"  ><button class="btn btn-primary">No access</button></td>
+        <td *ngIf = "!hasToken()"  ><a [routerLink]="['/edit', adunit._id]" class="btn btn-primary">See historic rates</a></td>
         <td *ngIf = 'hasToken()' ><button (click)="deleteAdUnit(adunit._id)"  class="btn btn-danger">Delete</button></td>
-        <td *ngIf = "!hasToken()"  ><button class="btn btn-danger">No access</button></td>
+
       </tr>
   </tbody>
 </table>

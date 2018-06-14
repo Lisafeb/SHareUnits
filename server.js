@@ -6,6 +6,7 @@ const express = require('express'),
     morgan = require('morgan'),
     passport = require('passport'),
     config = require('./config/DB');
+//var io = require('socket.io')(server);
 
     const app = express();
     app.use(express.static(path.join(__dirname, './client/dist/project')));
@@ -30,3 +31,15 @@ const express = require('express'),
     const server = app.listen(port, function(){
      console.log('Listening on port ' + port);
     });
+
+// socket io
+/*io.on('connection', function (socket) {
+  console.log('User connected');
+  socket.on('disconnect', function() {
+    console.log('User disconnected');
+  });
+  socket.on('save-message', function (data) {
+    console.log(data);
+    io.emit('new-message', { message: data });
+  });
+});*/
