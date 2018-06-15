@@ -12,9 +12,9 @@
           All Shares
         </a>
       </li>
-      <li class="nav-item" *ngIf = "!hasToken()">
+      <li class="nav-item" *ngIf = "hasToken()">
         <a routerLink="signup" class="nav-link" routerLinkActive="active">
-          Sign Up
+         Create user
         </a>
       </li>
       <li class="nav-item" *ngIf = "!hasToken()">
