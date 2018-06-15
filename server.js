@@ -28,9 +28,15 @@ const port = process.env.PORT || 4000;
 app.use('/adunits', adUnitRoutes);
 app.use('/auth', auth);
 
+<<<<<<< HEAD
 const server = app.listen(port, function(){
     console.log('Listening on port ' + port);
 });
+=======
+    const server = app.listen(port, function(){
+     console.log('Listening on port ' + port);
+    });
+>>>>>>> 0c837d1eb1db200e5f3ae6e9ef28944ab6c7174a
 
 // socket io
 /*io.on('connection', function (socket) {
