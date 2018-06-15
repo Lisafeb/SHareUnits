@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdUnit } from './AdUnit';
 import { AdunitService } from '../../adunit.service';
-import * as io from "socket.io-client";
+
 
 @Component({
   selector: 'app-index',
@@ -11,7 +11,7 @@ import * as io from "socket.io-client";
 export class IndexComponent implements OnInit {
 
   adunits: AdUnit[];
-  socket = io('http://localhost:4000');
+  //socket = io('http://localhost:4000');
   constructor(private adunitservice: AdunitService) { }
 
   deleteAdUnit(id) {
@@ -21,6 +21,11 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.adunitservice
+      .getAdUnits()
+      .subscribe((data: AdUnit[]) => {
+        this.adunits = data;
+      });
   }
   hasToken(){
     return localStorage.getItem("jwtToken");
